@@ -1,0 +1,30 @@
+import math
+
+n = int(input("Enter the value of n: "))
+x = int(input("Enter the value of x: "))
+
+factorial = lambda k: math.factorial(k)
+power = lambda m, k: m ** k
+
+terms = [power(n, k) / factorial(k) for k in range(x + 1)]
+sum_result = sum(terms)
+
+result = math.exp(n) - sum_result
+
+print(f"e^{n} = {result:.2f}")
+
+
+#q2
+
+def calculate_sum(n):
+
+    global result
+    if n == 0:
+        return
+
+    calculate_sum(n - 1)
+    result += ((-1) ** (n + 1)) / n
+
+calculate_sum(n)
+
+print("Result:", result)
